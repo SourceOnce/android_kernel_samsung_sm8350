@@ -631,7 +631,7 @@ struct request_queue {
 
 #define QUEUE_FLAG_DEFAULT ((1 << QUEUE_FLAG_SAME_COMP)	|	\
 				 (1 << QUEUE_FLAG_ADD_RANDOM))
-				 
+
 #define QUEUE_FLAG_MQ_DEFAULT ((1 << QUEUE_FLAG_SAME_COMP)	|	\
 				 (1 << QUEUE_FLAG_POLL))
 
@@ -1222,6 +1222,7 @@ static inline bool blk_needs_flush_plug(struct task_struct *tsk)
 }
 
 extern int blkdev_issue_flush(struct block_device *, gfp_t, sector_t *);
+extern void blkdev_issue_flush_nowait(struct block_device *, gfp_t);
 extern int blkdev_issue_write_same(struct block_device *bdev, sector_t sector,
 		sector_t nr_sects, gfp_t gfp_mask, struct page *page);
 
